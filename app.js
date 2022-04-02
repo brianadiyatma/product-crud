@@ -15,6 +15,9 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(dashboardRoutes);
 
+//404 routes
+app.use((req, res, next) => res.render("404"))
+
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Server is running on port ${process.env.PORT || 5000}`);
 });
